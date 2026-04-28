@@ -19,8 +19,9 @@ echo "==> Imagem: $IMAGE_URI"
 aws ecr get-login-password --region $REGION | docker login --username AWS --password-stdin $ECR_REGISTRY
 
 # Build e push
-docker build -t "$IMAGE_URI" .
+docker build -t "$IMAGE_URI" -t "$ECR_REPO:latest" .
 docker push "$IMAGE_URI"
+docker push "$ECR_REPO:latest"
 
 # Busca task definition atual e gera nova com a imagem do commit
 TASK_DEF=$(aws ecs describe-task-definition --task-definition $TASK_FAMILY --region $REGION \
