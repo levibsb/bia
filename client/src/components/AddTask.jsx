@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+mport React, { useState } from "react";
 import Modal from "./Modal";
 
 const AddTask = ({ onAdd }) => {
@@ -59,7 +59,7 @@ const AddTask = ({ onAdd }) => {
       </div>
       
       <button type="submit" className="btn btn-block success">
-      Adicionar Nova Tarefa
+      Adicionar Tarefa
       </button>
       
       <Modal
